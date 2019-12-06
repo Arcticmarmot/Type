@@ -11,7 +11,7 @@ export const API_CONFIG = new InjectionToken('ApiConfigToken');
     CommonModule
   ],
   providers: [
-    {provide: API_CONFIG, useValue: 'http://localhost:3000/'},
+    {provide: API_CONFIG, useValue: 'http://49.235.255.137:3000/'},
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomInterceptorService ,
