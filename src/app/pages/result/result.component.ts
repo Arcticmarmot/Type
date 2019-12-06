@@ -13,7 +13,7 @@ export class ResultComponent implements OnInit {
   id;
   articleAuth;
   result: TypingResult;
-  private isAuth: boolean = false;
+  isAuth: boolean = false;
   constructor(private route: ActivatedRoute,
               private cookie: CookieService,) {
     if(this.cookie.get('article_id')&&this.cookie.get('articleAuth')&& this.cookie.get('result')){

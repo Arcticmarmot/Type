@@ -19,11 +19,11 @@ export class EditorComponent implements OnInit,OnDestroy {
   words: Array<Array<Word>>;
   input: Array<string> = new Array<string>();
   cp = [0,0]; //cursor position
-  private isTimeToEnter = false;
+  isTimeToEnter = false;
   isSubmitKeyDown = false;
-  private eventObservable: Subscription;
-  private skipNum: number;
-  private lineNum = 100;
+  eventObservable: Subscription;
+  skipNum: number;
+  lineNum = 100;
   constructor(@Inject(DOCUMENT) private doc) { }
 
   ngOnInit() {

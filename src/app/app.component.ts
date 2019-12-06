@@ -45,7 +45,7 @@ export class AppComponent implements OnInit{
       }
     )
   }
-  private login() {
+  login() {
     if(this.route.url.startsWith('/article')) {
       this.route.navigate(['/home']);
     }
