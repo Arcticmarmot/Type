@@ -1,0 +1,62 @@
+@import '../../../assets/styles/varible';
+@import '../../../assets/styles/zorro';
+#result{
+  .result-extra{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .detail{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 21px;
+      span{
+        margin-top: 70px;
+        strong{
+          color: @panel;
+        }
+      }
+    }
+    .detail_auth{
+      display: flex;
+      justify-content: center;
+      font-size: 21px;
+      span{
+        margin-right: 70px;
+        strong{
+          color: @panel;
+        }
+      }
+    }
+    .navs{
+      margin-top: 200px;
+      width: 300px;
+      display: flex;
+      justify-content: space-between;
+      a{
+        font-size: 30px;
+        color: @nav;
+        &:hover{
+          color: @nav-hover;
+        }
+      }
+    }
+    .navs_auth{
+      width: 300px;
+      display: flex;
+      margin-bottom: 50px;
+      margin-top:50px;
+      justify-content: space-between;
+      a{
+        font-size: 30px;
+        color: @nav;
+        &:hover{
+          color: @nav-hover;
+        }
+      }
+    }
+
+  }
+
+}

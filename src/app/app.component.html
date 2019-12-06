@@ -1,0 +1,49 @@
+<div id="app">
+  <nz-layout class="layout">
+    <nz-header class="header" style="background-color: rgba(12,12,12,90)">
+      <div class="wrap">
+        <div class="left">
+          <div class="logo">
+          </div>
+          <div class="title">
+            <h1>TYPE</h1>
+          </div>
+        </div>
+        <div class="right">
+          <div class="nav">
+            <a [routerLink]="['/home']">HOME</a>
+          </div>
+          <div class="nav">
+            <a [routerLink]="['/upload']" *ngIf="auth">UPLOAD</a>
+          </div>
+          <div class="nav">
+            <a (click)="login()" *ngIf="!auth">LOGIN</a>
+            <a nz-dropdown [nzDropdownMenu]="menu" [nzClickHide]="true" *ngIf="auth">
+              ROOM
+              <i nz-icon nzType="down"></i>
+            </a>
+            <nz-dropdown-menu #menu="nzDropdownMenu">
+              <ul nz-menu nzTheme="dark" style="background-color: rgba(12,12,12,90)">
+                <li nz-menu-item
+                    [routerLink]="['/profile']"
+                    style="font-size: 16px">PROFILE</li>
+                <li nz-menu-item
+                    [routerLink]="['/record']"
+                    style="font-size: 16px">RECORD</li>
+                <li nz-menu-item
+                    (click)="logout()"
+                    style="font-size: 16px">LOGOUT</li>
+              </ul>
+            </nz-dropdown-menu>
+          </div>
+        </div>
+      </div>
+    </nz-header>
+    <nz-content class="content" >
+      <router-outlet></router-outlet>
+    </nz-content>
+    <nz-footer class="footer">
+      Ant Design ©2019 Implement By Angular
+    </nz-footer>
+  </nz-layout>
+</div>

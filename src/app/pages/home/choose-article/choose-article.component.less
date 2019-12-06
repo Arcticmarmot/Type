@@ -1,0 +1,50 @@
+@import '../../../../assets/styles/varible';
+@import '../../../../assets/styles/zorro';
+
+#choose-article{
+  width: 1000px;
+  height: auto;
+  background: @background-color-light;
+  .wrap{
+    margin: 30px;
+    .head{
+      display: flex;
+      justify-content: space-between;
+      .title{
+        margin-top: 20px;
+        .auth-switch{
+          font-size: 15px;
+          display: flex;
+          p{
+            margin-right: 20px;
+          }
+        }
+      }
+      i{
+        margin-top: 20px;
+        font-size: 18px;
+      }
+      .divided-line{
+        width: 100%;
+        color: #000c17;
+      }
+    }
+    .tags{
+      height: 400px;
+      overflow-y: scroll;
+      .languages{
+        margin-top: 20px;
+        margin-bottom: 30px;
+        .language{
+          font-size: 20px;
+        }
+        .tag-container{
+          .tag_private{
+            color: #292929;
+          }
+        }
+      }
+    }
+  }
+
+}

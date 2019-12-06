@@ -1,0 +1,8 @@
+<div id="editor">
+  <div class="panel">
+    <app-panel [isTimeToEnter]="isTimeToEnter" [startTime]="startTime" [words]="words" [cp]="cp" [isSubmitKeyDown]="isSubmitKeyDown"></app-panel>
+  </div>
+  <div class="content" id="content">
+      <pre [ngClass]="{'sentence-typing': sentence.state === 'typing','sentence-typed': sentence.state === 'typed', 'sentence-untyped': sentence.state === 'untyped'}" *ngFor="let sentence of sentences.slice(page*lineNum,(page+1)*lineNum);let i = index"><div class="index"><span class="index-num">{{i+page*lineNum}}</span></div><span [ngClass]="{'word-typing':w.state === 'typing','word-error':w.state === 'typed-error', 'word-right': w.state === 'typed-right', 'word-untyped': w.state === 'untyped','word-unknown': w.state === 'unknown'}" *ngFor="let w of words[i+page*lineNum]">{{w.value}}</span></pre>
+  </div>
+</div>

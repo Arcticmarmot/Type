@@ -1,0 +1,21 @@
+<div id="profile">
+  <div class="title-wrap">
+    <h1>Profile</h1>
+  </div>
+  <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="formData">
+    <mat-form-field>
+      <input matInput placeholder="Username" value="{{user.username}}" formControlName="username">
+      <mat-error *ngIf="formData.controls['username'].hasError('required')">
+        Please enter a username
+      </mat-error>
+      <mat-error *ngIf="formData.controls['username'].hasError('minlength')">
+        Username must more than 2 characters
+      </mat-error>
+    </mat-form-field>
+    <mat-card><strong>email:</strong>  {{user.email}}</mat-card>
+
+
+    <button mat-button type="submit" [disabled]="formData.invalid">Save</button>
+
+  </form>
+</div>

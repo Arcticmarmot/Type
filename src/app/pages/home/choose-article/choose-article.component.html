@@ -1,0 +1,46 @@
+<div id="choose-article">
+  <div class="wrap">
+    <div class="head">
+      <div class="title">
+        <h1>Choose one file to start</h1>
+        <div class="auth-switch" *ngIf="isAuthorized">
+          <p><strong>Auth-articles</strong></p>
+          <nz-switch [(ngModel)]="isAuthDoc"></nz-switch>
+        </div>
+      </div>
+      <i nz-icon nzType="close" nzTheme="outline" (click)="close()"></i>
+    </div>
+    <hr class="divided-line"/>
+    <div class="tags">
+      <div class="languages" *ngFor="let lang of languages">
+        <span class="language">
+          <strong>{{lang}}</strong>
+        </span>
+        <ng-container class="tag-container" *ngFor="let article of isAuthDoc?authArticles:articles">
+          <ng-container *ngIf="article.public">
+            <button class="tag"
+                    [nzSize]="'large'"
+                    nz-button nzType="link"
+                    [routerLink]="['/article',article._id,article.auth.toString()]"
+                    (click)="close()"
+                    *ngIf="lang === article.language">
+              {{article.title}}
+            </button>
+          </ng-container>
+          <ng-container *ngIf="!article.public">
+            <button class="tag_private"
+                    [nzSize]="'large'"
+                    nz-button nzType="link"
+                    [routerLink]="['/article',article._id]"
+                    (click)="close()"
+                    *ngIf="lang === article.language"
+                    style="color: #8a060b">
+              {{article.title}}
+            </button>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+

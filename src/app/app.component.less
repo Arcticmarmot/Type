@@ -1,0 +1,49 @@
+@import '../assets/styles/zorro';
+@import '../assets/styles/varible';
+#app{
+  .layout{
+    .header{
+      color: #12aff9;
+      .wrap{
+        display: flex;
+        justify-content: space-between;
+        .left{
+          display: flex;
+          justify-content: space-between;
+          .logo{
+
+          }
+          .title{
+            h1{
+              color: @border-color-base;
+              font-size: @font-size-lgx;
+            }
+          }
+        }
+        .right{
+          display: flex;
+          justify-content: space-between;
+          font-size: @font-size-lgs;
+          .nav{
+            margin-right: 50px;
+          }
+          a{
+            color: @primary-2;
+            &:hover{
+              text-decoration: underline;
+              text-underline: @primary-2;
+            }
+          }
+
+        }
+
+      }
+    }
+    .content{
+
+    }
+    .footer{
+      text-align: center;
+    }
+  }
+}

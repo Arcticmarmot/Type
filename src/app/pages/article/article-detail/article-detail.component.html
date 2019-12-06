@@ -1,0 +1,17 @@
+<div id="article-detail" *ngIf="isLoad">
+  <div class="title">
+    <h1>{{articleDetail.title}}</h1>
+  </div>
+  <div class="plus-information-container">
+    <div class="plus-information">
+      <div class="language">
+        <strong>Language: {{articleDetail.language}}</strong>
+      </div>
+      <div class="create-date">
+        <strong>{{articleDetail.createDate | createDate}}</strong>
+      </div>
+    </div>
+  </div>
+  <app-editor [content]="articleDetail.content"></app-editor>
+</div>
+

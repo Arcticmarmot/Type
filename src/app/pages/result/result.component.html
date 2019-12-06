@@ -1,0 +1,26 @@
+<div id="result">
+  <div class="result-extra">
+    <nz-result
+      nzStatus="success"
+      nzTitle="Wow, you are so fast!"
+      nzSubTitle="This record has been stored in your account.Keep going!"
+    >
+    </nz-result>
+    <div [ngClass]="{'detail_auth':isAuth,'detail':!isAuth}">
+      <span>
+        Speed: <strong>{{result.speed | speed}}</strong>
+      </span>
+      <span>
+        Accuracy: <strong>{{result.rightPercent | rightPercent}}</strong>
+      </span>
+      <span>
+        Typing time: <strong>{{result.countTime | countTime}}</strong>
+      </span>
+    </div>
+    <div [ngClass]="{'navs_auth':isAuth,'navs':!isAuth}">
+      <a [routerLink]="['/home']"><strong>Home</strong></a>
+      <a [routerLink]="id?['/article',id,articleAuth]:['/home']"><strong>Try Again</strong></a>
+    </div>
+  </div>
+  <app-statistics (auth)="auth($event)"></app-statistics>
+</div>

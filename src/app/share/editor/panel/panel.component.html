@@ -1,0 +1,18 @@
+<div id="panel">
+  <div class="information">
+    <div class="time">
+      {{countTime | countTime}}
+    </div>
+    <div class="time">
+      {{speed | speed}}
+    </div>
+    <div class="right-percent">
+      {{rightPercent| rightPercent}}
+    </div>
+  </div>
+  <div class="speed-line">
+    <app-speed-line [speed]="speed"></app-speed-line>
+  </div>
+
+</div>
+

@@ -1,0 +1,20 @@
+<div id="record">
+  <div class="title-wrap">
+    <h1>Your have already typing:   <strong>{{typingTime}}</strong></h1>
+  </div>
+  <div class="time-picker">
+    <nz-range-picker [(ngModel)]="dateRange"
+                     (ngModelChange)="onDateChange()"
+                     nzFormat="yyyy-MM-dd"></nz-range-picker>
+  </div>
+  <div class="record-statis" *ngIf="recordStatis">
+    <span>speed:  <strong>{{recordStatis.meanSpeed}}</strong></span>
+    <span>accuracy:  <strong>{{recordStatis.meanRightPercent}}</strong></span>
+    <span>time:  <strong>{{recordStatis.sumCountTime}}</strong></span>
+  </div>
+  <div class="table-statis">
+    <span>Recent twenty times:</span>
+    <app-statistics (auth)="auth()"></app-statistics>
+  </div>
+
+</div>

@@ -1,0 +1,50 @@
+<div id="reset">
+  <div class="title-wrap">
+    <h1>Reset your password</h1>
+  </div>
+  <form class='register-form'
+        [formGroup]="resetFormData"
+        (ngSubmit)="onResetSubmit()">
+    <mat-form-field>
+      <input matInput type="email" placeholder="Email" formControlName="email"/>
+      <mat-error *ngIf="resetFormData.controls['email'].hasError('exist')">
+        Email address already registered.
+      </mat-error>
+      <mat-error *ngIf="resetFormData.controls['email'].hasError('required')">
+        Please enter an email address.
+      </mat-error>
+      <mat-error *ngIf="resetFormData.controls['email'].hasError('email')">
+        Please enter a valid email address.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" formControlName="password"/>
+      <mat-error *ngIf="resetFormData.controls['password'].hasError('required')">
+        Please enter your password.
+      </mat-error>
+      <mat-error *ngIf="resetFormData.controls['password'].hasError('pattern')">
+        Password must contain letters and numbers or characters(length 6-20).
+      </mat-error>
+    </mat-form-field>
+    <div class="verify">
+      <mat-form-field>
+        <input matInput type="text" formControlName="pin"/>
+        <mat-error *ngIf="resetFormData.controls['pin'].hasError('required')">
+          Please enter verification code
+        </mat-error>
+        <mat-error *ngIf="resetFormData.controls['pin'].hasError('pattern')">
+          Please enter a valid pin.
+        </mat-error>
+        <mat-error *ngIf="resetFormData.controls['pin'].hasError('wrong')">
+          Wrong pin.
+        </mat-error>
+      </mat-form-field>
+      <button class="default" mat-button type="button" (click)="getPIN()"
+              [disabled]="!isCookieEnable||isSent||resetFormData.controls['email'].invalid||resetFormData.controls['password'].invalid"
+              [ngClass]="{'disabled': isSent||resetFormData.controls['email'].invalid||resetFormData.controls['password'].invalid}"
+      >{{pinButtonStr}}</button>
+    </div>
+    <button id="submit-btn" mat-button type="submit" [disabled]="resetFormData.invalid || !isCookieEnable">Reset</button>
+    <span class='cookie-message' *ngIf="!isCookieEnable">Please open your cookie or change a browser to login</span>
+  </form>
+</div>

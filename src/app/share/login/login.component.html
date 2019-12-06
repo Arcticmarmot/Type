@@ -1,0 +1,99 @@
+<div id="login">
+  <div class="wrap">
+    <div class="close">
+      <i nz-icon nzType="close" nzTheme="outline" (click)="close()"></i>
+    </div>
+
+    <div class="head">
+      <div class="login" (click)="changeState('Login')">
+        <a class="default" [ngClass]="{'active':state==='Login'}"><strong>Login</strong></a>
+        <div class="underline" [ngClass]="{'active-underline':state==='Login'}"></div>
+      </div>
+      <div class="register" (click)="changeState('Register')">
+        <a class="default" (click)="changeState('Register')" [ngClass]="{'active':state==='Register'}"><strong>Register</strong></a>
+        <div class="underline" [ngClass]="{'active-underline':state==='Register'}"></div>
+      </div>
+    </div>
+    <div class="form-wrap"  >
+      <form class='login-form'
+            [formGroup]="loginFormData"
+            *ngIf="state==='Login'"
+            (ngSubmit)="onLoginSubmit()">
+        <mat-form-field>
+          <input matInput type="email" placeholder="Email" formControlName="email"/>
+          <mat-error *ngIf="loginFormData.controls['email'].hasError('required')">
+            Please enter an email address.
+          </mat-error>
+          <mat-error *ngIf="loginFormData.controls['email'].hasError('email')">
+            Please enter a valid email address.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" formControlName="password"/>
+          <mat-error *ngIf="loginFormData.controls['password'].hasError('required')">
+            Please enter your password
+          </mat-error>
+          <mat-error *ngIf="loginFormData.controls['password'].hasError('pattern')">
+            Password must contain letters and numbers or characters(length 6-20).
+          </mat-error>
+          <mat-error *ngIf="loginFormData.controls['password'].hasError('wrong')">
+            Error account or password.
+          </mat-error>
+        </mat-form-field>
+        <span class="pin-login"><a [routerLink]="['/reset']" (click)="close()">forgot password?</a></span>
+        <button mat-button type="submit" [disabled]="loginFormData.invalid || !isCookieEnable">Login</button>
+        <span class='cookie_message' *ngIf="!isCookieEnable">Please open your cookie or change a browser to login</span>
+        <span>No Account?<a (click)="changeState('Register')">Create one</a></span>
+      </form>
+
+
+      <form class='register-form'
+            [formGroup]="registerFormData"
+            *ngIf="state==='Register'"
+            (ngSubmit)="onRegisterSubmit()">
+        <mat-form-field>
+          <input matInput type="email" placeholder="Email" formControlName="email"/>
+          <mat-error *ngIf="registerFormData.controls['email'].hasError('exist')">
+            Email address already registered.
+          </mat-error>
+          <mat-error *ngIf="registerFormData.controls['email'].hasError('required')">
+            Please enter an email address.
+          </mat-error>
+          <mat-error *ngIf="registerFormData.controls['email'].hasError('email')">
+            Please enter a valid email address.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" formControlName="password"/>
+          <mat-error *ngIf="registerFormData.controls['password'].hasError('required')">
+            Please enter your password.
+          </mat-error>
+          <mat-error *ngIf="registerFormData.controls['password'].hasError('pattern')">
+            Password must contain letters and numbers or characters(length 6-20).
+          </mat-error>
+        </mat-form-field>
+        <div class="verify">
+          <mat-form-field>
+            <input matInput type="text" formControlName="pin"/>
+            <mat-error *ngIf="registerFormData.controls['pin'].hasError('required')">
+              Please enter verification code
+            </mat-error>
+            <mat-error *ngIf="registerFormData.controls['pin'].hasError('pattern')">
+              Please enter a valid pin.
+            </mat-error>
+            <mat-error *ngIf="registerFormData.controls['pin'].hasError('wrong')">
+              Wrong pin.
+            </mat-error>
+          </mat-form-field>
+          <button class="default" mat-button type="button" (click)="getPIN()"
+                  [disabled]="!isCookieEnable||isSent||registerFormData.controls['email'].invalid||registerFormData.controls['password'].invalid"
+                  [ngClass]="{'disabled': isSent||registerFormData.controls['email'].invalid||registerFormData.controls['password'].invalid}"
+          >{{pinButtonStr}}</button>
+        </div>
+        <button mat-button type="submit" [disabled]="registerFormData.invalid || !isCookieEnable">Register</button>
+        <span class='cookie-message' *ngIf="!isCookieEnable">Please open your cookie or change a browser to login</span>
+        <span>Have an account?<a (click)="changeState('Login')">Sign in</a></span>
+      </form>
+    </div>
+  </div>
+</div>

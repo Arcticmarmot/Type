@@ -1,0 +1,42 @@
+<div id="upload">
+  <div class="title-wrap">
+    <h1>Admin Upload</h1>
+  </div>
+  <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Enter your title" value="" formControlName="title">
+      <mat-error *ngIf="formData.controls['title'].hasError('required')">
+        Please enter a title
+      </mat-error>
+      <mat-error *ngIf="formData.controls['title'].hasError('minlength')">
+        Title must more than 2 characters
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Select your lanuage" formControlName="language">
+        <mat-option *ngFor="let lang of languages" [value]="lang">
+          {{lang}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="public">public</mat-checkbox>
+
+    <input type="file" #file formControlName="file" style="display: none">
+    <button mat-button type="button" (click)="upload()">Upload</button>
+    <div class="tips">
+      <span>1.To make sure upload successfully, you'd better transfer the file extension to '.txt'.</span>
+      <br/>
+      <span>2.The file size should be lower than 100KB.</span>
+    </div>
+
+    <div class="fileShow">
+      <span>{{filePath}}</span>
+      <i *ngIf="filePath" nz-icon nzType="close" nzTheme="outline" style="font-size: 20px" (click)="cancelUpload()"></i>
+    </div>
+
+
+    <button mat-button type="submit" [disabled]="!formData.valid">Submit</button>
+
+  </form>
+</div>

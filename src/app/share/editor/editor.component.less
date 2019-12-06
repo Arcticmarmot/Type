@@ -1,0 +1,99 @@
+@import '../../../assets/styles/zorro';
+@import '../../../assets/styles/varible';
+#editor{
+  background: @background-content;
+  display: flex;
+  .panel{
+    width: 15%;
+  }
+  .content{
+    width: 85%;
+    padding-top: 5px;
+
+    .sentence-untyped{
+      width: 100%;
+      font-family: "Consolas";
+      font-size: 22px;
+      color: @background-sentence;
+      margin-bottom: 2px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      .index {
+        display: inline-block;
+        width: 50px;
+        background: @background-index;
+
+        .index-num {
+          color: @background-index-num;
+        }
+      }
+      .word-untyped{
+      }
+      .word-unknown{
+        color: rgba(100,160,100,95);
+      }
+
+    }
+    .sentence-typing{
+       width: 100%;
+       background: @background-content-typing;
+       font-family: "Consolas";
+       font-size: 22px;
+       color: @background-sentence;
+       margin-bottom: 2px;
+       overflow-x: hidden;
+       overflow-y: hidden;
+       .index{
+         display: inline-block;
+         width: 50px;
+         background: @background-index;
+         .index-num{
+           color: @background-index-num;
+         }
+       }
+      .word-untyped{
+      }
+      .word-unknown{
+        color: rgba(100,160,100,95);
+      }
+      .word-typing{
+        background: rgba(80,140,150,95);
+      }
+      .word-error{
+        background: rgba(180,100,100,95);
+      }
+      .word-right{
+        background: rgba(40,100,110,95);
+      }
+     }
+    .sentence-typed{
+      width: 100%;
+      //background: @background-content-typed;
+      font-family: "Consolas";
+      font-size: 22px;
+      color: @background-sentence;
+      margin-bottom: 2px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      .index{
+        display: inline-block;
+        width: 50px;
+        background: @background-index;
+        .index-num{
+          color: @background-index-num;
+        }
+      }
+      .word-untyped{
+      }
+      .word-unknown{
+        color: rgba(100,160,100,95);
+      }
+      .word-error{
+        background: rgba(160,80,80,90);
+      }
+      .word-right{
+        background: rgba(20,80,90,90);
+      }
+    }
+  }
+}

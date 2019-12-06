@@ -1,0 +1,123 @@
+@import '../../../assets/styles/varible';
+@import '../../../assets/styles/zorro';
+#login{
+  width: 600px;
+  height: 500px;
+  background: @background-color-light;
+
+  .wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .close{
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+      i{
+        font-size: 20px;
+        margin-top: 20px;
+        margin-right: 20px;
+      }
+    }
+    .head {
+      display: flex;
+      justify-content: space-between;
+      width: 390px;
+      div{
+        width: 50%;
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        .underline{
+          width: 90%;
+          height: 5px;
+          background: #595959;
+        }
+        .default{
+          font-size:30px;
+          margin-top: 20px;
+          color: #595959;
+        }
+        .active{
+          font-size:30px;
+          margin-top: 20px;
+        }
+        .active-underline{
+          width: 98%;
+          height: 5px;
+          background: #12aff9;
+        }
+      }
+    }
+    .form-wrap{
+      display: flex;
+      justify-content: center;
+      width: 370px;
+      height: 320px;
+      .login-form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        margin-top: 30px;
+        justify-content: space-between;
+        mat-form-field{
+          font-size: 20px;
+          width: 100%;
+        }
+        button{
+          color: cornflowerblue;
+          height: 50px;
+          width: 100%;
+          font-size: 25px;
+        }
+        .cookie-message{
+          color: red;
+        }
+      }
+      .register-form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        margin-top: 38px;
+        justify-content: space-between;
+        .verify{
+          display: flex;
+          height: 50px;
+          width: 100%;
+          mat-form-field{
+            font-size: 18px;
+            width: 50%;
+          }
+          .default{
+            color: cornflowerblue;
+            font-size: 20px;
+            width: 50%;
+          }
+          .disabled{
+            color: #595959;
+            width: 50%;
+          }
+        }
+        mat-form-field{
+          font-size: 18px;
+          width: 100%;
+        }
+        button{
+          color: cornflowerblue;
+          width: 100%;
+          font-size: 25px;
+        }
+        .cookie-message{
+          color: red;
+        }
+      }
+    }
+
+  }
+}
