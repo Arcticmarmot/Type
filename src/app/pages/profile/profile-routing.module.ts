@@ -6,7 +6,7 @@ import {AuthorizeGuard} from "./authorize.guard";
 
 
 const routes: Routes = [
-  {path:'profile',component: ProfileComponent,canActivate:[AuthorizeGuard],resolve:{profileResolve: ProfileResolveService}}
+  {path:'',component: ProfileComponent,canActivate:[AuthorizeGuard],resolve:{profileResolve: ProfileResolveService}}
 ];
 
 @NgModule({

@@ -4,7 +4,7 @@ import {ResetComponent} from "./reset.component";
 
 
 const routes: Routes = [
-  {path:'reset',component:ResetComponent}
+  {path:'',component:ResetComponent}
 ];
 
 @NgModule({

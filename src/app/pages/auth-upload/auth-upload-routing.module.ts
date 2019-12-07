@@ -5,7 +5,7 @@ import {AuthAdminGuard} from "./auth-admin.guard";
 
 
 const routes: Routes = [
-  {path:'auth-upload/:password',component:AuthUploadComponent,canActivate: [AuthAdminGuard]}
+  {path:'',component:AuthUploadComponent,canActivate: [AuthAdminGuard]}
 ];
 
 @NgModule({

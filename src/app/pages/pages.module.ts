@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {HomeModule} from "./home/home.module";
 import {ArticleModule} from "./article/article.module";
 import {ResultModule} from "./result/result.module";
 import {UploadModule} from "./upload/upload.module";
 import {ProfileModule} from "./profile/profile.module";
-import {AuthorizeGuard} from "./upload/authorize.guard";
 import {ResetModule} from "./reset/reset.module";
 import {AuthUploadModule} from "./auth-upload/auth-upload.module";
 import {RecordModule} from "./record/record.module";

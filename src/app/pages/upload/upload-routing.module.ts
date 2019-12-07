@@ -5,7 +5,7 @@ import {AuthorizeGuard} from "./authorize.guard";
 
 
 const routes: Routes = [
-  {path: 'upload',component: UploadComponent,canActivate: [AuthorizeGuard]}
+  {path: '',component: UploadComponent,canActivate: [AuthorizeGuard]}
 ];
 
 @NgModule({

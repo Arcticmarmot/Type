@@ -5,7 +5,7 @@ import {AuthorizeGuard} from "./authorize.guard";
 
 
 const routes: Routes = [
-  {path: 'record',component:RecordComponent,canActivate:[AuthorizeGuard]}
+  {path: '',component:RecordComponent,canActivate:[AuthorizeGuard]}
 ];
 
 @NgModule({
