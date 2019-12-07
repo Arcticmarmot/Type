@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AuthUploadComponent} from "./pages/auth-upload/auth-upload.component";
-import {AuthAdminGuard} from "./pages/auth-upload/auth-admin.guard";
 
 
 const routes: Routes = [

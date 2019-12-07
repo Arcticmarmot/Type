@@ -6,7 +6,7 @@ import {
   NZ_I18N,
   NzDropDownModule,
   NzIconModule,
-  NzLayoutModule, NzMessageService, NzMessageServiceModule,
+  NzLayoutModule, NzMessageServiceModule,
   zh_CN
 } from 'ng-zorro-antd';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,8 +14,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import {ServicesModule} from "./services/services.module";
-import {PagesModule} from "./pages/pages.module";
-import {ShareModule} from "./share/share.module";
 import {CookieService} from "ngx-cookie-service";
 import {HomeModule} from "./pages/home/home.module";
 import {LoginModule} from "./share/login/login.module";
