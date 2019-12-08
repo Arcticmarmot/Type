@@ -4,14 +4,15 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {CustomInterceptorService} from "./login/custom-interceptor.service";
 
 export const API_CONFIG = new InjectionToken('ApiConfigToken');
-
+const host = 'http://49.235.255.137:3000/';
+const localhost = 'http://localhost:3000/';
 @NgModule({
   declarations: [],
   imports: [
     CommonModule
   ],
   providers: [
-    {provide: API_CONFIG, useValue: '49.235.255.137:3000/'},
+    {provide: API_CONFIG, useValue: host},
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomInterceptorService ,
