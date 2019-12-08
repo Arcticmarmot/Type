@@ -1,11 +1,12 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {SendMailService} from "../../services/login/send-mail.service";
-import {NzMessageService} from "ng-zorro-antd";
+
 import {RegisterService} from "../../services/login/register.service";
 import {LoginService} from "../../services/login/login.service";
 import {PASSWORDPATTERN, PINPATTERN} from "../../utils/constants";
 import {ReloginService} from "../../services/login/relogin.service";
+import {NzMessageService} from "ng-zorro-antd";
 
 
 @Component({
@@ -30,10 +31,10 @@ export class LoginComponent implements OnInit {
   isCookieEnable: boolean;
   constructor(private fb: FormBuilder,
               private sendMailService: SendMailService,
-              private message: NzMessageService,
               private registerService: RegisterService,
               private loginService: LoginService,
-              private reloginService: ReloginService) {
+              private reloginService: ReloginService,
+              private message: NzMessageService,) {
   }
 
   ngOnInit() {

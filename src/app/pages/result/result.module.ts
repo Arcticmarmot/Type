@@ -6,7 +6,6 @@ import {EditorModule} from "../../share/editor/editor.module";
 import {NzButtonModule, NzIconModule, NzResultModule} from "ng-zorro-antd";
 import { StatisticsComponent } from './statistics/statistics.component';
 import {NgxEchartsModule} from 'ngx-echarts'
-import {SpeedPipe} from "../../share/editor/pipes/speed.pipe";
 
 
 

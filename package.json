@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "~8.2.9",
     "@angular/router": "~8.2.9",
     "echarts": "^4.5.0",
-    "ng-zorro-antd": "^8.4.1",
+    "ng-zorro-antd": "^8.5.2",
     "ngx-cookie-service": "^2.2.0",
     "ngx-echarts": "^4.2.2",
     "rxjs": "~6.4.0",

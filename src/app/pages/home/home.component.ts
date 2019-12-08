@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
-import {Overlay, OverlayPositionBuilder, OverlayRef} from "@angular/cdk/overlay";
+import {Overlay, OverlayPositionBuilder} from "@angular/cdk/overlay";
 import {ChooseArticleComponent} from "./choose-article/choose-article.component";
 import {ComponentPortal} from "@angular/cdk/portal";
 

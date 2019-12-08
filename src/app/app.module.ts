@@ -7,16 +7,17 @@ import {
   NzDropDownModule,
   NzIconModule,
   NzLayoutModule, NzMessageServiceModule,
-  zh_CN
+  zh_CN, NgZorroAntdModule
 } from 'ng-zorro-antd';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import {ServicesModule} from "./services/services.module";
-import {CookieService} from "ngx-cookie-service";
 import {HomeModule} from "./pages/home/home.module";
 import {LoginModule} from "./share/login/login.module";
+import {FormsModule } from '@angular/forms';
+import {CookieService} from "ngx-cookie-service";
 
 registerLocaleData(zh);
 
@@ -36,10 +37,12 @@ registerLocaleData(zh);
     NzIconModule,
     NzLayoutModule,
     NzMessageServiceModule,
+    FormsModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN },
-    CookieService],
+    CookieService,
+  ],
 
   bootstrap: [AppComponent]
 })

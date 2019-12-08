@@ -1,11 +1,8 @@
 <div id="result">
   <div class="result-extra">
-    <nz-result
-      nzStatus="success"
-      nzTitle="Wow, you are so fast!"
-      nzSubTitle="This record has been stored in your account.Keep going!"
-    >
-    </nz-result>
+    <div class="table">
+      <img src="../../../assets/img/bear.png"/>
+    </div>
     <div [ngClass]="{'detail_auth':isAuth,'detail':!isAuth}">
       <span>
         Speed: <strong>{{result.speed | speed}}</strong>

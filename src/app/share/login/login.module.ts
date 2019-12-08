@@ -6,7 +6,6 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {NzIconModule, NzMessageModule} from "ng-zorro-antd";
 import {MatButtonModule} from "@angular/material/button";
-import {CookieService} from "ngx-cookie-service";
 import {RouterModule} from "@angular/router";
 
 
@@ -20,10 +19,9 @@ import {RouterModule} from "@angular/router";
     ReactiveFormsModule,
     NzIconModule,
     MatButtonModule,
-    RouterModule,
     NzMessageModule,
+    RouterModule,
   ],
   entryComponents: [LoginComponent],
-  providers: [CookieService]
 })
 export class LoginModule { }
