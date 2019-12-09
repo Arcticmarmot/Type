@@ -6,7 +6,7 @@ import {RegisterService} from "../../services/login/register.service";
 import {LoginService} from "../../services/login/login.service";
 import {PASSWORDPATTERN, PINPATTERN} from "../../utils/constants";
 import {ResetService} from "../../services/login/reset.service";
-import {ReloginService} from "../../services/login/relogin.service";
+import {ReAuthorizeService} from "../../services/login/re-authorize.service";
 
 @Component({
   selector: 'app-reset',
@@ -26,7 +26,7 @@ export class ResetComponent implements OnInit {
               private sendMailService: SendMailService,
               private message: NzMessageService,
               private resetService: ResetService,
-              private reloginService: ReloginService) {
+              private reloginService: ReAuthorizeService) {
   }
 
   ngOnInit() {

@@ -6,8 +6,9 @@ import {
   NZ_I18N,
   NzDropDownModule,
   NzIconModule,
-  NzLayoutModule, NzMessageServiceModule,
-  zh_CN, NgZorroAntdModule
+  NzLayoutModule,
+  NzMessageServiceModule,
+  zh_CN
 } from 'ng-zorro-antd';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,7 +44,6 @@ registerLocaleData(zh);
     { provide: NZ_I18N, useValue: zh_CN },
     CookieService,
   ],
-
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,7 +7,6 @@ import { SpeedPipe } from './pipes/speed.pipe';
 import { RightPercentPipe } from './pipes/right-percent.pipe';
 import {NzButtonModule, NzCardModule} from "ng-zorro-antd";
 import { SpeedLineComponent } from './speed-line/speed-line.component';
-import {RouterModule} from "@angular/router";
 
 
 
@@ -23,7 +22,6 @@ import {RouterModule} from "@angular/router";
     CommonModule,
     NzCardModule,
     NzButtonModule,
-    RouterModule
   ]
 })
 export class EditorModule { }

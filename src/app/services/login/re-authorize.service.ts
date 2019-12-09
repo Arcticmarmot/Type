@@ -4,15 +4,15 @@ import {Subject} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class ReloginService {
-  private reloginInformation = new Subject();
+export class ReAuthorizeService {
+  private reAuthorizeInformation = new Subject();
   private authUpdate = new Subject();
-  reloginInformation$ = this.reloginInformation.asObservable();
+  reAuthorizeInformation$ = this.reAuthorizeInformation.asObservable();
   authUpdate$ = this.authUpdate.asObservable();
   constructor() { }
 
-  relogin(){
-    this.reloginInformation.next('relogin');
+  reAuthorize(){
+    this.reAuthorizeInformation.next('reAuthorize');
   }
   update(){
     this.authUpdate.next('authUpdate');

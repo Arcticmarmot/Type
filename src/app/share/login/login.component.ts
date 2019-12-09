@@ -1,11 +1,10 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {SendMailService} from "../../services/login/send-mail.service";
-
 import {RegisterService} from "../../services/login/register.service";
 import {LoginService} from "../../services/login/login.service";
 import {PASSWORDPATTERN, PINPATTERN} from "../../utils/constants";
-import {ReloginService} from "../../services/login/relogin.service";
+import {ReAuthorizeService} from "../../services/login/re-authorize.service";
 import {NzMessageService} from "ng-zorro-antd";
 
 
@@ -33,7 +32,7 @@ export class LoginComponent implements OnInit {
               private sendMailService: SendMailService,
               private registerService: RegisterService,
               private loginService: LoginService,
-              private reloginService: ReloginService,
+              private reAuthorizeService: ReAuthorizeService,
               private message: NzMessageService,) {
   }
 
@@ -57,7 +56,7 @@ export class LoginComponent implements OnInit {
   }
 
   countDown(){
-    let sec = 10;
+    let sec = 60;
     const countDown = setInterval(()=>{
       this.pinButtonStr = sec+'';
       if(sec===0){
@@ -84,7 +83,7 @@ export class LoginComponent implements OnInit {
       password:this.loginFormData.controls['password'].value}).subscribe(
       (res)=>{
         this.message.success(res.text);
-        this.reloginService.update();
+        this.reAuthorizeService.update();
         this.closeOverlay.emit('closeOverlay');
       },
       (err)=>{
@@ -103,7 +102,7 @@ export class LoginComponent implements OnInit {
         pin: this.registerFormData.controls['pin'].value}).subscribe(
       (res)=>{
         this.message.success(res.text);
-        this.reloginService.update();
+        this.reAuthorizeService.update();
         this.closeOverlay.emit('closeOverlay');
       },
       (err)=>{

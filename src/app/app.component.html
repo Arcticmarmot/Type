@@ -3,10 +3,8 @@
     <nz-header class="header" style="background-color: rgba(12,12,12,90)">
       <div class="wrap">
         <div class="left">
-          <div class="logo">
-          </div>
           <div class="title">
-            <h1>TYPE</h1>
+            <a [routerLink]="['/home']"><strong>TYPE</strong></a>
           </div>
         </div>
         <div class="right">
@@ -19,7 +17,7 @@
           <div class="nav">
             <a (click)="login()" *ngIf="!auth">LOGIN</a>
             <a nz-dropdown [nzDropdownMenu]="menu" [nzClickHide]="true" *ngIf="auth">
-              ROOM
+              YOUR
               <i nz-icon nzType="down"></i>
             </a>
             <nz-dropdown-menu #menu="nzDropdownMenu">
@@ -43,7 +41,8 @@
       <router-outlet></router-outlet>
     </nz-content>
     <nz-footer class="footer">
-      Ant Design ©2019 Implement By Angular
+      <p>Copyright ©2019 Arcticmarmot</p>
+      <p>Powered by MEAN</p>
     </nz-footer>
   </nz-layout>
 </div>

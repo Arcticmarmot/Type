@@ -1,11 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
-import {HttpClient, HttpRequest, HttpResponse} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {languages} from "../../utils/constants";
 import {NzMessageService} from "ng-zorro-antd";
 import {Router} from "@angular/router";
 import {UploadService} from "../../services/upload/upload.service";
-import {ReloginService} from "../../services/login/relogin.service";
+import {ReAuthorizeService} from "../../services/login/re-authorize.service";
 
 @Component({
   selector: 'app-upload',
@@ -27,7 +27,7 @@ export class UploadComponent implements OnInit {
               private message: NzMessageService,
               private route: Router,
               private uploadService:UploadService,
-              private reloginService: ReloginService,) {
+              private reAuthorizeService: ReAuthorizeService,) {
     this.formData.get('file').valueChanges.subscribe(
       (data:string)=> {
         this.filePath = data.slice(12)
@@ -53,7 +53,7 @@ export class UploadComponent implements OnInit {
       (err)=>{
         if(err.error.text==='unauthorized'){
           this.route.navigate(['/home']);
-          this.reloginService.relogin();
+          this.reAuthorizeService.reAuthorize();
         }
         this.message.error(err.statusText);
       }

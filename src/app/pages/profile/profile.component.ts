@@ -5,7 +5,7 @@ import {NzMessageService} from "ng-zorro-antd";
 import {map} from "rxjs/operators";
 import {User} from "../../services/data-types/user";
 import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
-import {ReloginService} from "../../services/login/relogin.service";
+import {ReAuthorizeService} from "../../services/login/re-authorize.service";
 
 @Component({
   selector: 'app-profile',
@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
               private fb: FormBuilder,
               private profileService: ProfileService,
               private route:Router,
-              private reloginService:ReloginService) {
+              private reAuthorizeService:ReAuthorizeService) {
   }
 
   ngOnInit() {
@@ -48,7 +48,7 @@ export class ProfileComponent implements OnInit {
         console.log(err)
         if(err.error.text==='unauthorized'){
           this.route.navigate(['/home']);
-          this.reloginService.relogin();
+          this.reAuthorizeService.reAuthorize();
         }
         this.message.error(err.statusText);
       }

@@ -5,7 +5,7 @@ import {LoginComponent} from "./share/login/login.component";
 import {Router} from "@angular/router";
 import {LogoutService} from "./services/login/logout.service";
 import {AuthorizeService} from "./services/login/authorize.service";
-import {ReloginService} from "./services/login/relogin.service";
+import {ReAuthorizeService} from "./services/login/re-authorize.service";
 
 @Component({
   selector: 'app-root',
@@ -22,17 +22,17 @@ export class AppComponent implements OnInit{
               private route: Router,
               private logoutService:LogoutService,
               private authorizeService: AuthorizeService,
-              private reloginService: ReloginService){
+              private reAuthorizeService: ReAuthorizeService){
   }
   ngOnInit(): void {
     this.updateAuth();
-    this.reloginService.reloginInformation$.subscribe(
+    this.reAuthorizeService.reAuthorizeInformation$.subscribe(
       _ => {
         this.logout();
         this.login();
       }
-    )
-    this.reloginService.authUpdate$.subscribe(
+    );
+    this.reAuthorizeService.authUpdate$.subscribe(
       _=>{
         this.updateAuth();
       }

@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ReloginService } from './relogin.service';
+import { DeleteArticleService } from './delete-article.service';
 
-describe('ReloginService', () => {
+describe('DeleteArticleService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ReloginService = TestBed.get(ReloginService);
+    const service: DeleteArticleService = TestBed.get(DeleteArticleService);
     expect(service).toBeTruthy();
   });
 });

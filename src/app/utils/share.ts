@@ -1,5 +1,3 @@
-import {TypingResult} from "../services/data-types/article";
-
 export const PANEL= {
   id: '',
   auth: '',

@@ -2,6 +2,8 @@ import {Component, EventEmitter, OnInit} from '@angular/core';
 import {ArticleListService} from "../../../services/article/article-list.service";
 import {Article} from "../../../services/data-types/article";
 import {languages} from "../../../utils/constants";
+import {DeleteArticleService} from "../../../services/upload/delete-article.service";
+import {NzMessageService} from "ng-zorro-antd";
 
 @Component({
   selector: 'app-choose-article',
@@ -15,7 +17,10 @@ export class ChooseArticleComponent implements OnInit {
   closeOverlay = new EventEmitter();
   isAuthDoc: boolean = true;
   isAuthorized: boolean;
-  constructor(private articleListService: ArticleListService) {
+  isEdit: boolean = false;
+  constructor(private articleListService: ArticleListService,
+              private deleteArticleService:DeleteArticleService,
+              private message:NzMessageService) {
     this.articleListService.getArticleList().subscribe(
       data => {
         this.articles = data.articles;
@@ -31,5 +36,16 @@ export class ChooseArticleComponent implements OnInit {
 
   close() {
     this.closeOverlay.emit('closeOverlay')
+  }
+
+  deleteArticle(id:string) {
+    this.deleteArticleService.deleteArticle(id).subscribe(
+      res=>{
+        this.message.success(res.text);
+      },
+      err=>{
+        this.message.error(err.statusText);
+      }
+    )
   }
 }

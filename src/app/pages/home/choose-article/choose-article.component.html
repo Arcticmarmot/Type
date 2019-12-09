@@ -3,9 +3,16 @@
     <div class="head">
       <div class="title">
         <h1>Choose one file to start</h1>
-        <div class="auth-switch" *ngIf="isAuthorized">
-          <p><strong>Auth-articles</strong></p>
-          <nz-switch [(ngModel)]="isAuthDoc"></nz-switch>
+        <div class="switches">
+          <div class="auth-switch" *ngIf="isAuthorized">
+            <p><strong>Auth-articles</strong></p>
+            <nz-switch [(ngModel)]="isAuthDoc"></nz-switch>
+
+          </div>
+          <div class="edit-mode" *ngIf="!isAuthDoc">
+            <p><strong>Edit</strong></p>
+            <nz-switch [(ngModel)]="isEdit"></nz-switch>
+          </div>
         </div>
       </div>
       <i nz-icon nzType="close" nzTheme="outline" (click)="close()"></i>
@@ -14,30 +21,16 @@
     <div class="tags">
       <div class="languages" *ngFor="let lang of languages">
         <span class="language">
-          <strong>{{lang}}</strong>
+          <strong>{{lang}} : </strong>
         </span>
         <ng-container class="tag-container" *ngFor="let article of isAuthDoc?authArticles:articles">
-          <ng-container *ngIf="article.public">
-            <button class="tag"
-                    [nzSize]="'large'"
-                    nz-button nzType="link"
-                    [routerLink]="['/article',article._id,article.auth.toString()]"
-                    (click)="close()"
-                    *ngIf="lang === article.language">
-              {{article.title}}
-            </button>
-          </ng-container>
-          <ng-container *ngIf="!article.public">
-            <button class="tag_private"
-                    [nzSize]="'large'"
-                    nz-button nzType="link"
-                    [routerLink]="['/article',article._id]"
-                    (click)="close()"
+            <nz-tag [nzMode]="(!isAuthDoc&&isEdit)?'closeable':'default'"
+                    (nzOnClose)="deleteArticle(article._id)"
                     *ngIf="lang === article.language"
-                    style="color: #8a060b">
-              {{article.title}}
-            </button>
-          </ng-container>
+                    style="margin-left: 20px">
+              <a style="font-size:16px" [routerLink]="['/article',article._id,article.auth.toString()]"
+                 (click)="close()"><strong>{{article.title}}</strong></a>
+            </nz-tag>
         </ng-container>
       </div>
     </div>

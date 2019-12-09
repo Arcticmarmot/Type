@@ -12,7 +12,7 @@ const localhost = 'http://localhost:3000/';
     CommonModule
   ],
   providers: [
-    {provide: API_CONFIG, useValue: host},
+    {provide: API_CONFIG, useValue: localhost},
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomInterceptorService ,
